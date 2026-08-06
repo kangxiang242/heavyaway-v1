@@ -1,0 +1,23 @@
+{
+  "id": "2039405",
+  "name": "luoshixian",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "977029",
+      "name": "赞",
+      "font_class": "zan",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "1223053",
+      "name": "踩",
+      "font_class": "cai",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    }
+  ]
+}

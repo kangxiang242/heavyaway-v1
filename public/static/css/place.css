@@ -1,0 +1,514 @@
+.place-nav{
+	margin-top: 0.6rem;
+	margin-bottom: 0.6rem;
+	color:#B3B3B3;
+	font-size: 0.26rem;
+	text-align: center;
+}
+
+.place-confirm{
+	margin-bottom: 0.4rem;
+}
+
+
+.confirm-title{
+	font-size: 0.32rem;
+	margin-bottom: 0.19rem
+}
+
+.confirm-box{
+
+	border: 0.01rem solid #999999;
+
+	margin-top: 10px;
+	border-radius: 5px;
+    z-index: 99999;
+
+}
+
+.upper-box{
+	padding: 15px 11.5px 0 15px;
+}
+
+.confirm-product-img{
+	float: left;
+}
+.confirm-product-img img{
+	width: 1.86rem;
+	height: 1.86rem;
+	border-radius: 0.1rem;
+}
+
+.box-right{
+    float: left;
+	display: flex;
+    width: 3.74rem;
+    height: 1.86rem;
+    margin-left: 0.4rem;
+}
+
+.confirm-right{
+
+	border: 0.01rem solid #999999;
+	height:0.66rem;
+	line-height: 0.66rem;
+	border-radius: 0.1rem;
+	align-self: center;
+	/*margin-left: 0.4rem;*/
+	width: 100%;
+
+}
+
+
+.confirm-right .action{
+	display: inline-block;
+	width: 0.64rem;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 0.4rem;
+    color: #333333;
+}
+
+.confirm-right .grey{
+    color:#CCCCCC !important;;
+}
+
+.float-left{
+	float:left;
+	border-right: 0.01rem solid #999999;
+}
+.float-right{
+	float:right;
+	border-left: 0.01rem solid #999999;
+}
+
+.confirm-right .action span{
+	color: #000000;
+	font-weight: bolder;
+
+}
+
+.confirm-right .text{
+	display: inline-block;
+	text-align: center;
+	width: calc(100% - 0.64rem - 0.64rem - 0.02rem);
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 0.28rem;
+}
+
+.confirm-right .input-div{
+	display: inline-block;
+	height:33px;
+}
+
+.confirm-price-box{
+	margin-top: 0.2rem;
+	border-top: 0.01rem solid #999;
+	padding: 0.2rem 0;
+    height:0.8rem;
+    line-height:0.8rem;
+
+}
+.confirm-price-box .describe{
+    width: 4.2rem;
+    display: inline-block;
+    text-align: center;
+    border-right:0.01rem solid #E6E6E6;
+}
+.confirm-price-box .total-price{
+    width: 2.38rem;
+    display: inline-block;
+    text-align: center;
+}
+.confirm-price-box p{
+	display: inline-block;
+
+	text-align: center;
+	height:40px;
+	line-height: 40px;
+	font-size: 0.28rem;
+}
+
+.confirm-price-box p:first-child{
+    margin-right: 0.2rem;
+}
+
+.confirm-price-box .grey{
+	color:#B2B2B2;
+}
+
+.confirm-price-box .span-red{
+	color:#FE3736;
+}
+
+.confirm-price-box .small{
+	font-size: 0.2rem;
+}
+
+.fieldset-item{
+	margin-bottom: 15px;
+}
+
+.fieldset-item fieldset{
+	border: 0.01rem solid #999;
+	padding: 0;
+	border-radius: 5px;
+	padding-left: 20px;
+
+}
+
+
+
+
+.fieldset-item .illusion{
+	border: 0.01rem solid #999999;
+	border-radius: 5px;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	padding-left: 0.4rem;
+}
+
+.fieldset-item .left-label{
+/*	width: 4rem;*/
+    float:left;
+
+}
+.fieldset-item .right-label{
+
+    float:right;
+    padding-right:0.3rem;
+    font-size: 0.26rem;
+    color:#B3B3B3;
+}
+.fieldset-item .right-xiala{
+    height: 0.65rem;
+    display: flex;
+}
+.fieldset-item .select-right-xiala{
+    height: 0.85rem;
+}
+.fieldset-item .right-xiala img{
+    align-self: center;
+    width: 0.25rem;
+    height:0.14rem;
+}
+.fieldset-item .input-left-label{
+
+    float:left;
+    font-size: 0.28rem;
+    font-weight: 550;
+    width: 80%;
+
+}
+.fieldset-item .input-right-label{
+
+    float:right;
+    padding-right:0.5rem;
+    font-size: 0.26rem;
+
+}
+
+
+
+.fieldset-item .left-label label{
+	font-size: 0.28rem;
+	/*color: #333333;*/
+    color: #b2b2b2;
+	white-space: nowrap;
+    /*font-weight: 600;*/
+
+}
+
+
+
+.fieldset-item fieldset legend{
+	font-size: 0.24rem;
+}
+
+.fieldset-item .right-input{
+	/* width: calc(100% - 120px); */
+	width: 100%;
+    height: 0.60rem;
+    line-height: 0.60rem;
+}
+.fieldset-item fieldset input{
+	border: none;
+	/*height: 35px;*/
+	width: 100%;
+	outline:none;
+	text-align: left;
+	font-size: 0.3rem;
+    font-weight: 500;
+
+}
+
+.fieldset-item fieldset select{
+	border: none;
+	height: 0.6rem;
+	width: 70%;
+	outline:none;
+	background: none;
+	font-size: 0.3rem;
+	appearance:none;
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+    font-weight: 600;
+    color: #333333;
+    pointer-events: none;
+
+}
+
+.fieldset-item fieldset input::-webkit-input-placeholder{
+	text-align: right;
+}
+.fieldset-item fieldset input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+	text-align: right;
+}
+.fieldset-item fieldset input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+	text-align: right;
+}
+.fieldset-item fieldset input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+	text-align: right;
+}
+
+.place-description p{
+	color: #B2B2B2;
+	font-size: 0.26rem;
+	margin-left: 1em;
+	text-indent:-1em;
+	margin-bottom: 0.27rem;
+}
+.place-button{
+	text-align: center;
+    margin-top: 0.8rem;
+}
+.place-button button{
+
+    background-color: #FFE4C4;
+    border: 1px solid #FFE4C4;
+    width: 6.8rem;
+    padding: 5px 0 5px 0;
+    border-radius: 6px;
+    height:1rem;
+    background: linear-gradient(180deg,rgba(247,230,221,1),rgba(242,206,187,1));
+    box-shadow: 0px 1px 2px 0px rgba(201,124,85,1);
+    color: #8F5638;
+    font-size: 0.32rem;
+    font-weight: 600;
+
+}
+
+
+
+/*PC*/
+@media screen and (min-width:960px){
+    .place-nav {
+        margin-top: 60px;
+        margin-bottom: 80px;
+        color: #B3B3B3;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .confirm-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .place-confirm {
+        margin-bottom: 50px;
+    }
+    .confirm-box {
+        border: 0.5px solid #999999;
+        margin-top: 10px;
+        border-radius: 5px;
+        width: 560px;
+        height:242px;
+    }
+
+    .confirm-product-img img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+    }
+
+    .box-right {
+        float: left;
+        display: flex;
+        width: 350px;
+        height: 120px;
+        margin-left: 40px;
+    }
+
+    .confirm-right {
+        border: 0.5px solid #999999;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 5px;
+        align-self: center;
+        /* margin-left: 0.4rem; */
+        width: 100%;
+    }
+    .confirm-right .action {
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 21px;
+    }
+    .confirm-right .text {
+        display: inline-block;
+        text-align: center;
+        width: 185px;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 21px;
+    }
+
+    .upper-box {
+        padding: 15px 0 15px 20px;
+    }
+
+    .confirm-price-box {
+        margin-top: 0;
+        border-top: 1px solid #999;
+
+        height: 40px;
+        line-height: 40px;
+        padding: 20px 0;
+    }
+
+    .confirm-price-box .describe {
+        width: 346px;
+        display: inline-block;
+        text-align: center;
+        border-right: 1px solid #E6E6E6;
+    }
+
+    .confirm-price-box p {
+        display: inline-block;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+    }
+
+    .confirm-price-box .small {
+        font-size: 14px;
+    }
+
+    .confirm-price-box .total-price {
+        width: 206px;
+        display: inline-block;
+        text-align: center;
+    }
+    .confirm-price-box p:first-child {
+        margin-right: 57px;
+    }
+
+    .fieldset-item fieldset legend {
+        font-size: 16px;
+    }
+
+    .fieldset-item .right-input {
+
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .fieldset-item .illusion {
+        border: 0.5px solid #999999;
+        border-radius: 5px;
+        height: 48px;
+        line-height: 48px;
+        padding-left: 15px;
+    }
+
+    .fieldset-item fieldset input {
+        border: none;
+        height: 35px;
+        width: 95%;
+        outline: none;
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .fieldset-item .left-label label {
+        font-size: 18px;
+        white-space: nowrap;
+    }
+
+    .fieldset-item fieldset select {
+        border: none;
+        height: 48px;
+        width: 70%;
+        outline: none;
+        background: none;
+        font-size: 18px;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+    .pc-place-confirm1{
+        width: 560px;
+        float: right;
+    }
+    .pc-place-confirm2{
+        width: 396px;
+    }
+    .place-description p {
+        color: #B2B2B2;
+        font-size: 18px;
+        margin-left: 1em;
+        text-indent: -1em;
+        margin-bottom: 0.27rem;
+    }
+
+    .place-button button {
+        width: 100%;
+        height: 48px;
+        /*background: linear-gradient(180deg,rgba(231,189,168,1),rgba(239,205,187,1));
+        box-shadow: 0px 1px 2px 0px rgba(201,124,85,1);*/
+        border-radius: 5px;
+        border: none;
+        color: #8F5537;
+        font-size: 20px;
+    }
+    .place-main{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .pc-place-other{
+        margin-bottom: 20px;
+    }
+
+    .fieldset-item .right-label {
+        float: right;
+        padding-right: 16px;
+        font-size: 18px;
+        color: #B3B3B3;
+    }
+
+    .fieldset-item .input-right-label {
+        float: right;
+        padding-right: 20px;
+        font-size: 18px;
+    }
+
+    .fieldset-item .input-left-label {
+        float: left;
+        font-size: 18px;
+        font-weight: 550;
+    }
+    .fieldset-item .right-xiala {
+        height: 30px;
+    }
+    .fieldset-item .right-xiala img {
+        align-self: center;
+        width: 17px;
+        height: 10px;
+    }
+}

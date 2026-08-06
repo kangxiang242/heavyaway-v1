@@ -1,0 +1,72 @@
+a {
+    text-decoration: none;
+    color: #2e9fff;
+    font-family: 'Microsoft YaHei', Tahoma, Arial, sans-serif;
+}
+
+h1{
+    font-size:0.44rem!important;;
+}
+
+
+h2{
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.40rem!important;
+}
+
+h3{
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.36rem!important;
+    font-style:italic;
+}
+
+h4{
+    font-size: 0.32rem!important;;
+}
+
+h5{
+    font-size: 0.28rem!important;;
+}
+
+h6{
+    font-size: 0.24rem!important;;
+}
+p{
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+
+@media screen and (min-width:960px){
+    h1{
+        font-size:32px!important;;
+    }
+
+
+    h2{
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 24px!important;
+    }
+
+    h3{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 18.72px!important;
+        font-style:italic;
+    }
+
+    h4{
+        font-size: 16px!important;
+    }
+
+    h5{
+        font-size: 13.28px!important;
+    }
+
+    h6{
+        font-size: 12px!important;
+    }
+}

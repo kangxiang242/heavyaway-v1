@@ -1,0 +1,123 @@
+.news{
+	margin-top: 0.6rem;
+}
+.left{
+	float:left;
+	width: 2.6rem;
+
+}
+.left img{
+	float:left;
+	width: 2.6rem;
+	height:1.8rem;
+	border-radius: 5px;
+	box-shadow: 5px 5px 0 0 #f6e1d6;
+}
+.right{
+	float:left;
+	width: calc(100% - 2.9rem);
+	margin-left: 0.3rem;
+	height:1.8rem;
+	position:relative;
+}
+
+.button{
+	position:absolute;
+	right:0;
+	bottom:-5px;
+
+}
+
+.button button{
+
+	width:1.6rem;
+	height:0.48rem;
+	border:1px solid rgba(143,85,55,1);
+	border-radius:5px;
+	background:none;
+	color:#8F5537;
+	font-weight: 400;
+	font-size: 0.26rem;
+}
+
+.p-sub-title{
+	display: none;
+}
+.p-title{
+	height: 1.2rem;
+	overflow:hidden;
+	font-size: 0.28rem;
+}
+.p-title a{
+    color: #333333;
+}
+.pagination{
+	display: none;
+}
+
+/*PC*/
+@media screen and (min-width:960px){
+    .box-content{
+        width: 100%;
+    }
+    .sub-nav {
+        padding-left: 0;
+        width: 90%;
+        margin-left: auto;
+        right: auto;
+    }
+    .related{
+        width: 1200px;
+        margin: 0 auto;
+    }
+	.news{
+
+		margin-left:auto;
+		margin-right:auto;
+        margin-top: 60px;
+	}
+    .left {
+
+        width: 260px;
+    }
+    .left img {
+        float: left;
+        width: 260px;
+        height: 180px;
+        border-radius: 5px;
+        box-shadow: 5px 5px 0 0 #F0CDBB;
+    }
+    .right {
+        float: left;
+        width: 740px;
+        margin-left: 30px;
+        height: 180px;
+        position: relative;
+    }
+	.button{
+		left: 0;
+		bottom: 0;
+	}
+
+	.button button {
+	    width: 107px;
+	    height: 32px;
+		font-size: 18px;
+	}
+	.p-title {
+	    height: 40px;
+        font-size: 22px;
+
+	}
+	.p-sub-title{
+		display: block;
+		color:#999999;
+		font-size: 18px;
+		margin-top: 1px;
+	}
+
+	.pagination{
+		display: block;
+	}
+
+}

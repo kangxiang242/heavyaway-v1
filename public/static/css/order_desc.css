@@ -1,0 +1,153 @@
+
+.order{
+	margin-top: 0.6rem;
+}
+.order .item{
+	margin-bottom: 0.6rem;
+}
+.order .row{
+
+	border:1px solid rgba(229,229,229,1);
+	border-radius: 0.1rem;
+	margin-bottom: 0.2rem;
+    /*height:0.8rem;
+    line-height: 0.8rem;*/
+    min-height: 0.8rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    align-items: stretch;
+    display: table;
+
+}
+
+.order .row-goods{
+    height:1.4rem;
+    line-height: 1.4rem;
+}
+.order .row div{
+
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.order .row .left{
+	background-color:rgba(251,241,237,1);
+	color:#8F5537;
+	width:1.8rem;
+  /*  height:100%;*/
+	text-align: center;
+	font-size: 0.28rem;
+    height: auto;
+    line-height: initial;
+    word-break: break-all;
+}
+.order .row .right{
+	padding-left: 8px;
+	font-size: 0.28rem;
+    width: 4.5rem;
+    height:100%;
+    border-right:none !important;
+    display: table-cell;
+    vertical-align: middle;
+    word-break:break-all;
+
+}
+
+.order .row .right span{
+    padding-left: 8px;
+    font-size: 0.28rem;
+    word-break:break-all;
+    width:3rem;
+    line-height: 0.1rem;
+}
+
+.order .row .right img{
+	width: 1.2rem;
+	height:1.2rem;
+}
+
+.order .row-goods .left{
+	height:1.4rem;
+	line-height: 1.4rem;
+    float:left;
+}
+.order .row-goods .right .goods-img {
+    float:left;
+    margin-right: 0.1rem;
+}
+.order .row-goods .right{
+    height:1.4rem;
+    line-height: 1.4rem;
+}
+
+.order .row-goods .right img{
+	margin-top: 5px;
+	border-radius: 5px;
+}
+
+
+/*PC*/
+@media screen and (min-width:960px){
+    .order {
+
+        width: 900px;
+        margin: 60px auto;
+    }
+
+    .order .item {
+        margin-bottom: 80px;
+    }
+
+    .order .row {
+        border: 1px solid rgba(229,229,229,1);
+        border-radius: 5px;
+        margin-bottom: 20px;
+        min-height: 80px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        align-items: stretch;
+        display: table;
+    }
+
+    .order .row .left {
+        background-color: rgba(251,241,237,1);
+        color: #8F5537;
+        width: 200px;
+        /* height: 100%; */
+        text-align: center;
+        font-size: 22px;
+        height: auto;
+        line-height: initial;
+        word-break: break-all;
+    }
+
+    .order .row .right {
+        padding-left: 8px;
+        font-size: 22px;
+        width: 700px;
+        height: 100%;
+        border-right: none !important;
+        display: table-cell;
+        vertical-align: middle;
+        word-break: break-all;
+    }
+
+    .order .row-goods {
+        height: 140px;
+        line-height: 140px;
+    }
+
+    .order .row .right img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .order .row .right span {
+        padding-left: 8px;
+        font-size:22px;
+        word-break: break-all;
+        width: 3rem;
+        line-height: 0.1rem;
+    }
+}
+
