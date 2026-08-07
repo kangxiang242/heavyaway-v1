@@ -5,29 +5,14 @@
 <title>羅氏鮮-該頁面不存在</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="{{ asset('css/error/404/bootstrap.min.css') }}">
+<link rel="stylesheet" href="<?php echo e(asset('css/error/404/bootstrap.min.css')); ?>">
 
-<link rel="stylesheet" href="{{ asset('css/error/404/style.css') }}">
+<link rel="stylesheet" href="<?php echo e(asset('css/error/404/style.css')); ?>">
 
 </head>
 <body>
 
-{{--<div class="hamburger-menu">
-  <button class="burger" data-state="closed">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</div>
 
-<nav data-state="closed">
-	<ul>
-		<li><a href="https://404.life/">首页</a></li>
-		<li><a href="https://404.life/">在线服务</a></li>
-		<li><a href="https://404.life/">关于我们</a></li>
-		<li><a href="https://404.life/">联系我们</a></li>
-	</ul>
-</nav>--}}
 
 <main>
   <div class="container">
@@ -244,9 +229,10 @@
   </div>
 </main>
 
-<script src="{{ asset('css/error/404/gsap.min.js') }}"></script>
-<script src="{{ asset('css/error/404/script.js') }}"></script>
+<script src="<?php echo e(asset('css/error/404/gsap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('css/error/404/script.js')); ?>"></script>
 
 
 
 </body></html>
+<?php /**PATH /Users/mac-2312-r/workspace/wwwroot/纤体-減肥/heavyaway/heavyaway-v1/resources/views/errors/404.blade.php ENDPATH**/ ?>
