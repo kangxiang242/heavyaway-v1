@@ -20,14 +20,23 @@ Route::get('/about', [IndexController::class, 'about']);
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/check', [OrderController::class, 'query']);
 
-// Admin login routes (GET/POST login handled by Admin\LoginController, overrides Filament default)
-Route::prefix(env('ADMIN_PATH', 'ami3-17drt4-6ne634russ'))->group(function () {
+// Admin login routes (GET/POST login handled by Admin\LoginController)
+// 1. 子域名访问: https://ami3-17drt4-6ne634russ.<域名>.com/login
+Route::domain(env('ADMIN_ROUTE_DOMAIN'))->group(function () {
     Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class, 'showLoginForm'])
         ->name('filament.' . env('ADMIN_PATH', 'ami3-17drt4-6ne634russ') . '.auth.login');
     Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class, 'login'])
         ->name('admin.login.submit');
     Route::post('/logout', [\App\Http\Controllers\Admin\LoginController::class, 'logout'])
         ->name('filament.' . env('ADMIN_PATH', 'ami3-17drt4-6ne634russ') . '.auth.logout');
+});
+
+// 2. www 路径访问兼容
+Route::prefix(env('ADMIN_PATH', 'ami3-17drt4-6ne634russ'))->group(function () {
+    Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class, 'showLoginForm'])
+        ->name('admin.login.show');
+    Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class, 'login'])
+        ->name('admin.login.submit.path');
 });
 
 Route::prefix('article')->group(function () {
