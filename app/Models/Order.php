@@ -31,11 +31,20 @@ class Order extends Model
     ];
 
     protected $fillable = [
-        'no','inside_no','total_price','product_price','freight','delivery_type','delivery_time','payment_type','name','phone','email','country','province','city','county','street','address','status','remarks','ip','ipcountry','user_agent','shop_name','shop_type','shop_no','shop_data'
+        'order_no','no','inside_no','status','total_price','product_price','freight','delivery_type','delivery_time','payment_type',
+        'name','phone','email','country','province','city','county','street','address',
+        'consignee_name','consignee_phone','consignee_email','consignee_province','consignee_city','consignee_county','consignee_street','consignee_address',
+        'shipping_method_id','shipping_method_name','waybill_no','express_company','delivery_at','payment_at',
+        'remarks','ip','ipcountry','user_agent','order_device','shop_name','shop_type','shop_no','shop_data'
     ];
 
     public function products()
     {
         return $this->hasMany(OrderProduct::class);
+    }
+
+    public function goods()
+    {
+        return $this->hasOne(OrderGoods::class);
     }
 }
