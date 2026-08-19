@@ -40,7 +40,7 @@ class OrderResource extends Resource
             ->schema([
                 Forms\Components\Section::make('訂單資訊')
                     ->schema([
-                        Forms\Components\TextInput::make('no')
+                        Forms\Components\TextInput::make('order_no')
                             ->label('訂單編號')
                             ->required()
                             ->maxLength(255),
@@ -64,26 +64,13 @@ class OrderResource extends Resource
                             ->required()
                             ->numeric()
                             ->prefix('NT$'),
-                        Forms\Components\TextInput::make('product_price')
-                            ->label('商品總價')
-                            ->numeric()
-                            ->prefix('NT$'),
                         Forms\Components\TextInput::make('freight')
                             ->label('運費')
                             ->numeric()
                             ->prefix('NT$'),
-                        Forms\Components\Select::make('delivery_type')
+                        Forms\Components\TextInput::make('shipping_method_name')
                             ->label('配送方式')
-                            ->options(Order::DELIVERY_TYPE_TXT)
-                            ->default(0),
-                        Forms\Components\Select::make('delivery_time')
-                            ->label('配送時段')
-                            ->options(Order::DELIVERY_TIME),
-                        Forms\Components\Select::make('payment_type')
-                            ->label('付款方式')
-                            ->options([
-                                '0' => '貨到付款',
-                            ]),
+                            ->maxLength(255),
                         Forms\Components\Select::make('status')
                             ->label('訂單狀態')
                             ->options(Order::STATUS_TXT)
@@ -91,9 +78,6 @@ class OrderResource extends Resource
                         Forms\Components\Textarea::make('remarks')
                             ->label('備註')
                             ->maxLength(65535),
-                        Forms\Components\TextInput::make('country')
-                            ->label('國家')
-                            ->maxLength(255),
                         Forms\Components\TextInput::make('province')
                             ->label('省份')
                             ->maxLength(255),
@@ -112,19 +96,18 @@ class OrderResource extends Resource
                     ])
                     ->columns(2),
 
-                Forms\Components\Section::make('商店資訊')
+                Forms\Components\Section::make('配送資訊')
                     ->schema([
-                        Forms\Components\TextInput::make('shop_name')
-                            ->label('商店名稱')
+                        Forms\Components\TextInput::make('waybill_no')
+                            ->label('運單號')
                             ->maxLength(255),
-                        Forms\Components\Select::make('shop_type')
-                            ->label('商店類型')
-                            ->options(Order::SHOP_TYPE_TXT),
-                        Forms\Components\TextInput::make('shop_no')
-                            ->label('商店編號')
+                        Forms\Components\TextInput::make('express_company')
+                            ->label('配送公司')
                             ->maxLength(255),
-                        Forms\Components\KeyValue::make('shop_data')
-                            ->label('商店資料'),
+                        Forms\Components\DateTimePicker::make('delivery_at')
+                            ->label('配送時間'),
+                        Forms\Components\DateTimePicker::make('payment_at')
+                            ->label('付款時間'),
                     ])
                     ->columns(2),
 
@@ -133,17 +116,11 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('ip')
                             ->label('IP位址')
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('ipcountry')
-                            ->label('IP地區')
-                            ->maxLength(255),
                         Forms\Components\Textarea::make('user_agent')
                             ->label('User Agent')
                             ->maxLength(65535),
-                        Forms\Components\TextInput::make('is_test')
-                            ->label('是否測試')
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('release_token')
-                            ->label('釋放Token')
+                        Forms\Components\TextInput::make('order_device')
+                            ->label('裝置')
                             ->maxLength(255),
                     ])
                     ->columns(2),
@@ -155,11 +132,13 @@ class OrderResource extends Resource
         return $table
             ->selectable()
             ->columns([
-                Tables\Columns\TextColumn::make('no')
+                Tables\Columns\TextColumn::make('order_no')
                     ->label('訂單號')
                     ->searchable()
                     ->sortable()
                     ->size('sm')
+                    ->limit(25)
+                    ->wrap()
                     ,
                 Tables\Columns\TextColumn::make('total_price')
                     ->label('金額')
@@ -167,16 +146,18 @@ class OrderResource extends Resource
                     ->money('TWD')
                     ->size('sm')
                     ,
-                Tables\Columns\TextColumn::make('products')
+                Tables\Columns\TextColumn::make('goods')
                     ->label('商品信息')
                     ->html()
                     ->wrap()
-                    
                     ->getStateUsing(function ($record) {
                         $html = '';
                         foreach ($record->products as $item) {
-                            $productName = e($item->product_name);
-                            $html .= '<p style="width: 300px">' . $productName . '<span>(' . $item->number . '件)</span></p>';
+                            $html .= '<p style="width: 300px;margin:0">' . e($item->product_name) . '<span>(' . ($item->number ?? 1) . '件)</span></p>';
+                        }
+                        $goods = $record->goods;
+                        if ($goods && $goods->goods_title) {
+                            $html .= '<p style="width: 300px;margin:0">' . e($goods->goods_title) . '<span>(' . ($goods->number ?? 1) . '件)</span></p>';
                         }
                         return $html;
                     })
@@ -203,10 +184,13 @@ class OrderResource extends Resource
                             . '<p style="margin:0"><a href="?phone=' . e($record->phone) . '">' . e($record->phone) . '</a></p>'
                             . '<p style="margin:0"><a href="?email=' . e($record->email) . '">' . e($record->email) . '</a></p>';
                     }),
-                Tables\Columns\TextColumn::make('delivery_type')
+                Tables\Columns\TextColumn::make('shipping_method_name')
                     ->label('配送方式')
-                    
                     ->formatStateUsing(function ($record) {
+                        if (!empty($record->shipping_method_name)) {
+                            return $record->shipping_method_name;
+                        }
+
                         $hasShopData = !empty($record->shop_name) || !empty($record->shop_no);
 
                         if ($hasShopData) {
@@ -435,9 +419,13 @@ class OrderResource extends Resource
                     $productTxt .= PHP_EOL;
                 }
             }
+            $goods = $item->goods;
+            if (!$productTxt && $goods && $goods->goods_title) {
+                $productTxt = $goods->goods_title . "({$goods->price}/件)*{$goods->number}";
+            }
 
             // Address format
-            if ($item->delivery_type > 0) {
+            if (($item->delivery_type ?? 0) > 0) {
                 $shopTypeName = isset(Order::SHOP_TYPE_TXT[$item->shop_type])
                     ? Order::SHOP_TYPE_TXT[$item->shop_type] : '超商';
                 $addr = $item->address . "（{$shopTypeName}{$item->shop_name}門市{$item->shop_no}自取件）電話通知到店取貨";
@@ -465,7 +453,7 @@ class OrderResource extends Resource
                 ? (Order::DELIVERY_TIME[$item->delivery_time] ?? '') : '';
 
             $data[] = [
-                $item->no,
+                $item->order_no ?? $item->no,
                 $item->inside_no,
                 $productTxt,
                 $item->total_price,
@@ -473,7 +461,7 @@ class OrderResource extends Resource
                 $item->phone,
                 $item->email,
                 $addr,
-                Order::DELIVERY_TYPE_TXT[$item->delivery_type] ?? '',
+                $item->shipping_method_name ?: (Order::DELIVERY_TYPE_TXT[$item->delivery_type] ?? ''),
                 $deliveryTime,
                 $item->remarks,
                 Order::STATUS_TXT[$item->status] ?? $item->status,

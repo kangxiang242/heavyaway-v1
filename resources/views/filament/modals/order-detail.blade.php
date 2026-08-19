@@ -2,7 +2,7 @@
     <div class="grid grid-cols-2 gap-3">
         <div>
             <label class="text-xs text-gray-500">訂單號</label>
-            <div class="text-sm font-medium">{{ $order->no }}</div>
+            <div class="text-sm font-medium">{{ $order->order_no ?? $order->no }}</div>
         </div>
         <div>
             <label class="text-xs text-gray-500">內部訂單號</label>
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label class="text-xs text-gray-500">商品金額</label>
-            <div class="text-sm font-medium">NT$ {{ number_format($order->product_price) }}</div>
+            <div class="text-sm font-medium">NT$ {{ number_format($order->product_price ?? $order->total_price) }}</div>
         </div>
         <div>
             <label class="text-xs text-gray-500">訂單狀態</label>
