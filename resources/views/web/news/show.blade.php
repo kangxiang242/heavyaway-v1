@@ -86,7 +86,7 @@
             <div class="fluid">
                 <div class="news-title">{{ $news->title }}</div>
                 <div class="news-content" data-track-scroll-target>
-                    @if($news->html_file)
+                    @if($news->html_file && empty($news->content))
                         @php
                             // 移除 .zip 后缀以获取正确的目录名
                             $dirName = preg_replace('/\.zip$/', '', $news->html_file);
